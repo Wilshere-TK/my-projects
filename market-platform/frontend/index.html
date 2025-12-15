@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>E-commerce Platform</h1>
+    <button class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button id="account-details-btn">Account Details</button>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#products-section">Products</a></li>
+        <li><a href="#order-section">Order</a></li>
+        <li><a href="#admin-section">Admin</a></li>
+        <li><a href="#account-section" onclick="showMainTab('register'); toggleHamburgerMenu();">Register</a></li>
+        <li><a href="#account-section" onclick="showMainTab('login'); toggleHamburgerMenu();">Login</a></li>
+        <li><a href="#" id="logout-link" onclick="logout(); toggleHamburgerMenu();">Logout</a></li>
+        <li><a href="#products-section" onclick="toggleHamburgerMenu();">Back to Page</a></li>
+      </ul>
+      <div class="hamburger-content">
+        <div id="hamburger-account-section">
+          <h2>Account</h2>
+          <div class="tab-container">
+            <button class="tab-button active" onclick="showTab('register')">Register</button>
+            <button class="tab-button" onclick="showTab('login')">Login</button>
+          </div>
+          <div id="register-tab" class="tab-content">
+            <form id="register-form">
+              <label for="reg-name">Name:</label>
+              <input type="text" id="reg-name" required>
+              <label for="reg-email">Email:</label>
+              <input type="email" id="reg-email" required>
+              <label for="reg-phone">Phone:</label>
+              <input type="text" id="reg-phone" required>
+              <label for="reg-password">Password:</label>
+              <input type="password" id="reg-password" required>
+              <button type="submit">Register</button>
+            </form>
+            <div id="register-status"></div>
+          </div>
+          <div id="login-tab" class="tab-content" style="display: none;">
+            <form id="login-form">
+              <label for="login-email">Email:</label>
+              <input type="email" id="login-email" required>
+              <label for="login-password">Password:</label>
+              <input type="password" id="login-password" required>
+              <button type="submit">Login</button>
+            </form>
+            <div id="login-status"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="cart-icon" id="cart-icon">
+      <span>Cart</span>
+      <span id="cart-count">0</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero-section">
+      <div class="hero-content">
+        <h1>Welcome to Our E-commerce Platform</h1>
+        <p>Discover amazing products at unbeatable prices. Shop now and enjoy fast delivery!</p>
+        <button onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'});">Shop Now</button>
+      </div>
+      <div class="hero-image">
+        <img src="https://via.placeholder.com/600x400?text=Shop+Now" alt="Hero Image">
+      </div>
+    </section>
+
+    <section id="online-marketing-section">
+      <h2>Online Marketing Insights</h2>
+      <div class="marketing-images">
+        <img src="https://via.placeholder.com/300x200?text=Social+Media+Marketing" alt="Social Media Marketing">
+        <img src="https://via.placeholder.com/300x200?text=Email+Marketing" alt="Email Marketing">
+        <img src="https://via.placeholder.com/300x200?text=SEO+Optimization" alt="SEO Optimization">
+        <img src="https://via.placeholder.com/300x200?text=Paid+Ads" alt="Paid Ads">
+      </div>
+    </section>
+
+    <section id="products-section">
+      <h2>Products</h2>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search products...">
+        <button id="search-btn">Search</button>
+      </div>
+      <div id="products-container" class="product-grid"></div>
+    </section>
+
+    <section id="product-details-section">
+      <h2>Product Details</h2>
+      <div id="product-details"></div>
+    </section>
+
+    <section id="order-section">
+      <h2>Place Order</h2>
+      <form id="order-form">
+        <label for="product-id">Product ID:</label>
+        <input type="number" id="product-id" required>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" required>
+        <button type="submit">Place Order</button>
+      </form>
+      <div id="order-status"></div>
+    </section>
+
+    <section id="payment-section" style="display: none;">
+      <h2>Payment</h2>
+      <input type="hidden" id="order-id">
+      <label for="payment-method">Select Payment Method:</label>
+      <select id="payment-method" required>
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="cash-on-delivery">Cash on Delivery</option>
+        <option value="mobile-money">Mobile Money</option>
+      </select>
+      <div id="mobile-money-fields" style="display: none;">
+        <label for="phone-number">Phone Number (e.g., 254712345678):</label>
+        <input type="text" id="phone-number" placeholder="254712345678" required>
+      </div>
+      <button id="pay-btn">Process Payment</button>
+      <div id="payment-status"></div>
+    </section>
+
+    <section id="admin-section">
+      <h2>Admin Panel</h2>
+      <button id="toggle-admin-btn">Toggle Admin Panel</button>
+      <div id="admin-password" style="display: none;">
+        <label for="admin-pass">Enter Admin Password:</label>
+        <input type="password" id="admin-pass" required>
+        <button id="submit-pass-btn">Submit</button>
+      </div>
+      <div id="admin-panel" style="display: none;">
+        <h3>Add Product</h3>
+        <form id="add-product-form">
+          <input type="text" id="add-name" placeholder="Name" required>
+          <input type="text" id="add-description" placeholder="Description" required>
+          <input type="number" id="add-price" placeholder="Price" required>
+          <input type="text" id="add-image-url" placeholder="Image URL">
+          <input type="file" id="add-image-file" accept="image/*">
+          <input type="text" id="add-location" placeholder="Location" required>
+          <input type="number" id="add-quantity" placeholder="Quantity" required>
+          <button type="submit">Add Product</button>
+        </form>
+        <div id="admin-products"></div>
+      </div>
+    </section>
+
+    <section id="account-section">
+      <h2>Account</h2>
+      <div class="tab-container">
+        <button class="tab-button active" onclick="showMainTab('register')">Register</button>
+        <button class="tab-button" onclick="showMainTab('login')">Login</button>
+      </div>
+      <div id="main-register-tab" class="tab-content">
+        <form id="register-form">
+          <label for="reg-name">Name:</label>
+          <input type="text" id="reg-name" required>
+          <label for="reg-email">Email:</label>
+          <input type="email" id="reg-email" required>
+          <label for="reg-phone">Phone:</label>
+          <input type="text" id="reg-phone" required>
+          <label for="reg-password">Password:</label>
+          <input type="password" id="reg-password" required>
+          <button type="submit">Register</button>
+        </form>
+        <div id="register-status"></div>
+      </div>
+      <div id="main-login-tab" class="tab-content" style="display: none;">
+        <form id="login-form">
+          <label for="login-email">Email:</label>
+          <input type="email" id="login-email" required>
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" required>
+          <button type="submit">Login</button>
+        </form>
+        <div id="login-status"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total">Total: KES 0</div>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 E-commerce Platform. All rights reserved.</p>
+    <nav>
+      <a href="#products-section">Products</a>
+      <a href="#order-section">Order</a>
+      <a href="#account-section">Account</a>
+      <a href="#admin-section">Admin</a>
+    </nav>
+    <p>Contact us: info@ecommerce.com | Phone: +254 123 456 789</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

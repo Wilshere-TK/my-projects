@@ -1,0 +1,22 @@
+# TODO List for Integrating Frontend Order Flow with Payment Selection and Additional Features
+
+- [x] Update index.html: Hide the payment-section initially and add a select dropdown for payment methods (Credit Card, PayPal, Cash on Delivery).
+- [x] Update script.js: After successful order placement, show the payment-section. In processPayment function, include the selected payment method in the request body.
+- [x] Update server.js: Modify the /payment POST endpoint to accept payment_method in the request body and log it for simulation.
+- [ ] Test the order flow: Place an order, select a payment method, process payment, and verify backend logs the method.
+- [ ] Add admin product upload: Update admin panel in index.html to include file upload for product images.
+- [x] Update backend for product upload: Modify server.js to handle file uploads for product images.
+- [x] Enhance payment flow: After clicking pay, if mobile money is selected, prompt for phone number and integrate with M-Pesa STK Push.
+- [x] Update payment methods: Add "Mobile Money" as a payment option.
+- [x] Install axios for M-Pesa API calls.
+- [x] Update server.js: Add M-Pesa STK Push integration using provided credentials.
+- [x] Test new features: Upload product, place order, select mobile money, enter phone number, process payment via STK Push.
+- [x] Ensure uploaded product images are visible on the platform (frontend served from backend at http://localhost:3000/index.html).
+- [x] Add more impressive colors to enhance visual appeal.
+- [x] Add hamburger menu for mobile navigation.
+- [x] Add toggle down (dropdown) for account or categories.
+- [x] Improve accessibility: ARIA labels, keyboard navigation, focus management.
+- [x] Add more impressive features: animations, icons, better layout.
+- [x] Test responsive design on different screen sizes.
+- [x] Arrange features well: products, order, register, account, login.
+- [x] Make UI features function well: cart, login, register.

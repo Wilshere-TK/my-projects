@@ -1,0 +1,23 @@
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.input-box input {
+  width: 70%;
+  padding: 10px;
+}
+
+.input-box button {
+  padding: 10px 20px;
+  margin-left: 10px;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 20px;
+  background: #e7f5ff;
+  border-left: 4px solid #3498db;
+}

@@ -1,0 +1,14 @@
+/home/leon254/call_app/build/linux/x64/debug/bundle/call_app
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/leon254/call_app/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/leon254/call_app/build/linux/x64/debug/bundle/lib/liburl_launcher_linux_plugin.so
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/version.json
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/shaders/stretch_effect.frag
+/home/leon254/call_app/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
